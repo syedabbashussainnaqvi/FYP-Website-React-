@@ -1,22 +1,13 @@
 .logo {
-  font-style: italic;
   font-size: 18px;
-  color: white;
+  color: black;
 }
 .logo a {
   decoration: none;
+  color: black;
 }
 a:hover {
   decoration: none;
   color: gray;
   text-decoration: none;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }

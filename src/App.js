@@ -1,6 +1,6 @@
 import "./App.css";
 import React, { Component } from "react";
-import RootPage from "./Components/Home/Home";
+import Home from "./Components/Home/Home";
 import Layout from "./Components/Layout/Layout";
 import AboutUs from "./Components/AboutUs/AboutUs";
 import { Route, Switch, Redirect } from "react-router-dom";
@@ -13,7 +13,8 @@ class App extends Component {
         <Route path="/changeDetection" component={ChangeDetection} />
         <Route path="/classification" component={Classification} />
         <Route path="/aboutUs" component={AboutUs} />
-        <Route path="/" exact component={RootPage} />
+        <Route path="/home" component={Home} />
+        <Route path="/" exact component={Home} />
       </Switch>
     );
     return <Layout>{paths}</Layout>;

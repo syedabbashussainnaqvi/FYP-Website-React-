@@ -90,7 +90,6 @@ class AboutUs extends Component {
           <Col bsPrefix={classes.Faisal}>
             <span className={classes.Name}>Syed Abbas Hussain Naqvi</span>
             <br /> <span className={classes.Rank}>Software Developer</span>
-            <div>Abbas</div>
             <br />
             Syed Abbas Hussain Naqvi is a Talented Final Year Computer Science
             <br />

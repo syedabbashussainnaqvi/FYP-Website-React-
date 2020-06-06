@@ -4,11 +4,22 @@ import Nav from "react-bootstrap/Nav";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import logo from "../../../Assets/logo.svg";
 import classes from "./Toolbar.module.css";
+import BackgroundImage from "../../../Assets/Capture.PNG";
 class Toolbar extends Component {
   render() {
     return (
-      <Navbar collapseOnSelect expand="sm" bg="dark" variant="dark">
-        <Navbar bg="dark" variant="dark">
+      <Navbar
+        collapseOnSelect
+        style={{
+          color: "white",
+          backgroundImage: `url(${BackgroundImage})`,
+          backgroundPosition: "center",
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+        }}
+        expand="sm"
+      >
+        <Navbar>
           <Navbar.Brand href="/" bsPrefix={classes.logo}>
             <img
               alt="abbas"
@@ -23,8 +34,12 @@ class Toolbar extends Component {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto">
-            <Nav.Link href="/home">Home</Nav.Link>
-            <Nav.Link href="/aboutUs">About Us</Nav.Link>
+            <Nav.Link href="/home" style={{ color: "black" }}>
+              Home
+            </Nav.Link>
+            <Nav.Link href="/aboutUs" style={{ color: "black" }}>
+              About Us
+            </Nav.Link>
             <NavDropdown title="Demo" id="collasible-nav-dropdown">
               <NavDropdown.Item href="/changeDetection">
                 Change Detection
