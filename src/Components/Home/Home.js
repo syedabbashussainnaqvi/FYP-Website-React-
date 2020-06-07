@@ -3,13 +3,12 @@ import styles from "./HomeStyle";
 import React, { Component } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import NavDropdown from "react-bootstrap/NavDropdown";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 const Home = (props) => {
   const classes = styles();
   const count = useSelector((state) => state.tasks);
   const readHandler = (id) => {
-    //yaha pa ak object ka andr data set karna hu ga and us object ko pass karna hu ga Component ko
-    props.history.push({ pathname: props.history.match.url + "taskUI/" + id });
+    props.history.push({ pathname: "/taskUI/" + id });
   };
   return (
     <Container fluid>
