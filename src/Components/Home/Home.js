@@ -1,12 +1,16 @@
-import React, { Component } from "react";
+import Task from "./Task/Task";
 import styles from "./HomeStyle";
+import React, { Component } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import NavDropdown from "react-bootstrap/NavDropdown";
-import Task from "./Task/Task";
+import { useDispatch, useSelector } from "react-redux";
 const Home = (props) => {
   const classes = styles();
-  const a =
-    "Syed Abbas Hussain Naqvi is a Talented Final Year Computer Science";
+  const count = useSelector((state) => state.tasks);
+  const readHandler = (id) => {
+    //yaha pa ak object ka andr data set karna hu ga and us object ko pass karna hu ga Component ko
+    props.history.push({ pathname: props.history.match.url + "taskUI/" + id });
+  };
   return (
     <Container fluid>
       <Row>
@@ -36,7 +40,12 @@ const Home = (props) => {
       </Row>
       <Row style={{ marginTop: "50px", marginBottom: "50px" }}>
         <Col md={12}>
-          <Task imgName="abbas.jpg" heading="Welcome To Our Website" text={a}>
+          <Task
+            imgName="abbas.jpg"
+            heading="Welcome To Our Website"
+            readHandler={readHandler}
+            id="classification"
+          >
             Syed Abbas Hussain Naqvi is a Talented Final Year Computer Science
             student with a strong academic background and the ability to think
             through a problem coupled with the confidence to make ideas heard.
@@ -49,7 +58,13 @@ const Home = (props) => {
           </Task>
         </Col>
         <Col style={{ marginTop: "10px" }}>
-          <Task imgName="abbas.jpg" heading="Welcome To Our Website" text={a}>
+          <Task
+            id="changeDetection"
+            imgName="abbas.jpg"
+            heading="Welcome To Our Website"
+            readHandler={readHandler}
+            flexFlo="row-reverse"
+          >
             Syed Abbas Hussain Naqvi is a Talented Final Year Computer Science
             student with a strong academic background and the ability to think
             through a problem coupled with the confidence to make ideas heard.

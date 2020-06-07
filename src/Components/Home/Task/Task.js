@@ -6,6 +6,7 @@ const Task = (props) => {
   const classes = styles();
   const path = "../../../Assets/";
   const imgRec = path + "" + props.imgName;
+
   return (
     <Container fluid={"sm"}>
       <Row>
@@ -19,6 +20,12 @@ const Task = (props) => {
         <Col md={7}>
           <span className={classes.heading}>{props.heading}</span>
           <br /> <span className={classes.text}>{props.children}</span>
+          <div
+            className={classes.read}
+            onClick={() => props.readHandler(props.id)}
+          >
+            read more
+          </div>
         </Col>
       </Row>
     </Container>
