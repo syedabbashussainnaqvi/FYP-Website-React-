@@ -62,7 +62,7 @@ const Home = (props) => {
             imgName="abbas.jpg"
             heading="Welcome To Our Website"
             readHandler={readHandler}
-            flexFlo="row-reverse"
+            flex="row-reverse"
           >
             Syed Abbas Hussain Naqvi is a Talented Final Year Computer Science
             student with a strong academic background and the ability to think

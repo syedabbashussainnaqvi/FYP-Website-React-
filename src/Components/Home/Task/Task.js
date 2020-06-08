@@ -9,7 +9,7 @@ const Task = (props) => {
 
   return (
     <Container fluid={"sm"}>
-      <Row>
+      <Row style={{ flexDirection: props.flex }}>
         <Col md={2.3}>
           <img
             className={classes.img}
@@ -21,6 +21,7 @@ const Task = (props) => {
           <span className={classes.heading}>{props.heading}</span>
           <br /> <span className={classes.text}>{props.children}</span>
           <div
+            style={{ display: props.readMore }}
             className={classes.read}
             onClick={() => props.readHandler(props.id)}
           >

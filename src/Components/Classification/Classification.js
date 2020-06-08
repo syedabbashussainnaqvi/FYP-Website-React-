@@ -4,6 +4,7 @@ import axios from "axios";
 import Upload from "../uploadComponent/upload";
 import Input from "../Navigation/UI/input/input";
 import Button from "../Navigation/UI/Button/Button";
+import Task from "../Home/Task/Task";
 class Classification extends Component {
   constructor(props) {
     super(props);
@@ -109,7 +110,9 @@ class Classification extends Component {
         console.log(error);
       });
   };
-
+  readHandler = (id) => {
+    console.log("Clicked");
+  };
   setImage = (imgs) => {
     this.setState({
       img: imgs,
@@ -163,6 +166,46 @@ class Classification extends Component {
 
     return (
       <div className={classes.App}>
+        <div className={classes.task}>
+          <Task
+            imgName="abbas.jpg"
+            heading="How to Use"
+            readHandler={this.readHandler}
+            id="classification"
+            readMore="none"
+          >
+            Syed Abbas Hussain Naqvi is a Talented Final Year Computer Science
+            student with a strong academic background and the ability to think
+            through a problem coupled with the confidence to make ideas heard.
+            He is working in TUKL-NUST R&D Centre at my University (NUST) He is
+            interested in MERN Stack Development and Data Science. His Final
+            Year Project is "Patch-Wise Forest Segmentation of Remote Sensing
+            Data". He is working on forest classification, change detection and
+            data fusion of Sentinel-1 and Sentinel-2 imagery to get better
+            classification results on the Pakistan dataset.
+          </Task>
+        </div>
+        <div className={classes.task}>
+          <Task
+            imgName="abbas.jpg"
+            heading="How to Use"
+            readHandler={this.readHandler}
+            id="classification"
+            readMore="none"
+            flex="row-reverse"
+          >
+            Syed Abbas Hussain Naqvi is a Talented Final Year Computer Science
+            student with a strong academic background and the ability to think
+            through a problem coupled with the confidence to make ideas heard.
+            He is working in TUKL-NUST R&D Centre at my University (NUST) He is
+            interested in MERN Stack Development and Data Science. His Final
+            Year Project is "Patch-Wise Forest Segmentation of Remote Sensing
+            Data". He is working on forest classification, change detection and
+            data fusion of Sentinel-1 and Sentinel-2 imagery to get better
+            classification results on the Pakistan dataset.
+          </Task>
+        </div>
+
         <h2>Upload Image For Classification</h2>
         <div className={classes.Card}>
           <div className={classes.dis}>
