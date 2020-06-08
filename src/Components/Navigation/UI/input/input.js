@@ -29,18 +29,6 @@ const Input = (props) => {
         </select>
       );
       break;
-    case "checkbox":
-      inputElement = (
-        <label>
-          <input
-            {...props.elementConfig}
-            className={classes.InputElement}
-            onChange={props.changeHandler}
-          />
-          Check Me!
-        </label>
-      );
-      break;
     default:
       break;
   }

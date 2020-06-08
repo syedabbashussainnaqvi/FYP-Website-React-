@@ -22,7 +22,28 @@ class Classification extends Component {
         },
         value: "S1",
       },
-      checkbox: {},
+    },
+    setLabel: {
+      Coniferousforest: false,
+      Mixedforest: false,
+      Transitionalwoodlandshrub: false,
+      Urbanfabric: false,
+      Industrialorcommercialunits: false,
+      Arableland: false,
+      Permanentcrops: false,
+      Pastures: false,
+      Complexcultivationpatterns: false,
+      Landprincipallyoccupiedbyagriculturewithsignificantareasofnaturalvegetation: false,
+      Agroforestryareas: false,
+      Broadleavedforest: false,
+      Naturalgrasslandandsparselyvegetatedareas: false,
+      Moorsheathlandandsclerophyllousvegetation: false,
+      Transitionalwoodlandshrub: false,
+      Beachesdunessands: false,
+      Inlandwetlands: false,
+      Coastalwetlands: false,
+      Inlandwaters: false,
+      Marinewaters: false,
     },
     img: null,
     result: null,
@@ -72,6 +93,17 @@ class Classification extends Component {
         this.setState({
           result: response.data.result,
         });
+        response.data.result.map((res) => {
+          let spaceRemoval = res.replace(/\s/g, "");
+          let dashRemoval = spaceRemoval.replace("-", "");
+          let commaRemoval = dashRemoval.replace(/[,]/g, "");
+          const updatedLables = { ...this.state.setLabel };
+          updatedLables[commaRemoval] = true;
+
+          this.setState({
+            setLabel: updatedLables,
+          });
+        });
       })
       .catch((error) => {
         console.log(error);
@@ -98,34 +130,40 @@ class Classification extends Component {
         />
       );
     });
-
     let btn = false;
     if (this.state.img == null) {
       btn = true;
     }
 
-    let { result } = this.state;
-    let returnResult = null;
-    if (result) {
-      returnResult = (
-        <div className={classes.previewText2}>
-          <h2>Result</h2>
-          <ul style={{ listStyleType: "none" }}>
-            {this.state.result.map((item, i) => (
-              <li key={i}>{item}</li>
-            ))}
-          </ul>
-        </div>
-      );
-    }
-    let a = [classes.previewText2];
+    let resultShowingDiv = [classes.previewText2];
+    let labelShowingDiv = [classes.labelDiv];
+    let checkbox = null;
+
     if (this.state.result) {
-      a.push(classes.test);
+      resultShowingDiv.push(classes.test);
+      checkbox = this.state.labels.map((item, i) => {
+        let spaceRemoval = item.replace(/\s/g, "");
+        let dashRemoval = spaceRemoval.replace("-", "");
+        let commaRemoval = dashRemoval.replace(/[,]/g, "");
+        return (
+          <label key={item}>
+            <input
+              className={classes.label}
+              type="checkbox"
+              key={item}
+              checked={this.state.setLabel[commaRemoval]}
+              disabled={!this.state.setLabel[commaRemoval]}
+            />
+            &nbsp; {item}
+          </label>
+        );
+      });
+      labelShowingDiv.push(classes.showlabel);
     }
+
     return (
       <div className={classes.App}>
         <h2>Upload Image For Classification</h2>
-        <div className={a.join(" ")}>{returnResult}</div>
         <div className={classes.Card}>
           <div className={classes.dis}>
             {inputs}
@@ -138,6 +176,7 @@ class Classification extends Component {
           disable={btn}
           postServerHandle={this.postServerHandle}
         />
+        <div className={labelShowingDiv.join(" ")}>{checkbox}</div>
       </div>
     );
   }
