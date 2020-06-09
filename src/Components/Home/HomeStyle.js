@@ -20,10 +20,13 @@ const useStyles = makeStyles((theme) => ({
     color: "white",
     fontSize: "30px",
     fontWeight: "bold",
-    [theme.breakpoints.down("md")]: {
+    [theme.breakpoints.down("xs")]: {
       top: "15%",
-      fontSize: "18px",
+      fontSize: "30px",
       left: "20%",
+    },
+    [theme.breakpoints.down("md")]: {
+      fontSize: "18px",
     },
   },
   buttonCenter: {

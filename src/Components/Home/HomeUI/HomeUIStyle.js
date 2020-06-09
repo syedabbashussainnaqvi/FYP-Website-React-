@@ -21,6 +21,9 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "30px",
     fontWeight: "bold",
     [theme.breakpoints.down("md")]: {
+      fontSize: "18px",
+    },
+    [theme.breakpoints.down("xs")]: {
       top: "15%",
       fontSize: "18px",
       left: "20%",

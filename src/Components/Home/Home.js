@@ -4,11 +4,11 @@ import React, { Component } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { useSelector } from "react-redux";
+
 const Home = (props) => {
   const classes = styles();
-  const count = useSelector((state) => state.tasks);
   const readHandler = (id) => {
-    props.history.push({ pathname: "/taskUI/" + id });
+    props.history.push({ pathname: "/projectdiscription/" + id });
   };
   return (
     <Container fluid>

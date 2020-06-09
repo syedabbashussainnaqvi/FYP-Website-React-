@@ -4,8 +4,6 @@ import { Container, Row, Col } from "react-bootstrap";
 
 const Task = (props) => {
   const classes = styles();
-  const path = "../../../Assets/";
-  const imgRec = path + "" + props.imgName;
 
   return (
     <Container fluid={"sm"}>

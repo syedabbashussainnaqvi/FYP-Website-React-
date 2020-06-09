@@ -6,7 +6,7 @@ import AboutUs from "./Components/AboutUs/AboutUs";
 import { Route, Switch, Redirect } from "react-router-dom";
 import Classification from "./Components/Classification/Classification";
 import ChangeDetection from "./Components/changeDetection/changeDetection";
-import TaskUI from "./Components/Navigation/UI/TaskUI/TaskUI";
+import ProjectDiscription from "./Components/Navigation/UI/ProjectDiscription/ProjectDiscription";
 class App extends Component {
   render() {
     let paths = (
@@ -15,7 +15,7 @@ class App extends Component {
         <Route path="/classification" component={Classification} />
         <Route path="/aboutUs" component={AboutUs} />
         <Route path="/home" exact component={Home} />
-        <Route path="/taskUI/:id" component={TaskUI} />
+        <Route path="/projectdiscription/:id" component={ProjectDiscription} />
         <Route path="/" exact component={Home} />
       </Switch>
     );
