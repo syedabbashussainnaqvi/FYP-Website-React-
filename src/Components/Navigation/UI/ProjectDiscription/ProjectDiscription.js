@@ -49,9 +49,9 @@ const ProjectDiscription = (props) => {
             }}
           >
             <img
-              src={require(`../../../../Assets/${state.category["methodologyImage"]}`)}
+              src={require(`../../../../Assets/${state.category["methodology"].methodologyImage}`)}
               style={{
-                marginTop: "20%",
+                marginTop: "15%",
                 borderRadius: "10px",
                 width: "100%",
                 height: "50%",
@@ -62,7 +62,7 @@ const ProjectDiscription = (props) => {
         <hr />
         <Row style={{ marginTop: "20px" }}>
           <Col>
-            <Panel />
+            <Panel category={state.category} />
           </Col>
         </Row>
       </Container>

@@ -7,11 +7,15 @@ const Task = (props) => {
 
   return (
     <Container fluid={"sm"}>
-      <Row style={{ flexDirection: props.flex }}>
+      <Row
+        style={{
+          flexDirection: props.flex,
+        }}
+      >
         <Col md={2.3}>
           <img
             className={classes.img}
-            src={require(`../../../Assets/${props.imgName.toLowerCase()}`)}
+            src={require(`../../../Assets/${props.imgName}`)}
             style={{ borderRadius: "10px" }}
           />
         </Col>

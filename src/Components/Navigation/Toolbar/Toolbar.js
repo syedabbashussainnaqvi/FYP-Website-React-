@@ -9,6 +9,7 @@ class Toolbar extends Component {
   render() {
     return (
       <Navbar
+        sticky="top"
         collapseOnSelect
         style={{
           color: "white",

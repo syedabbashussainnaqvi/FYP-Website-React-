@@ -9,6 +9,7 @@ import ChangeDetection from "./Components/changeDetection/changeDetection";
 import ProjectDiscription from "./Components/Navigation/UI/ProjectDiscription/ProjectDiscription";
 class App extends Component {
   render() {
+    let toolbarFlag = false;
     let paths = (
       <Switch>
         <Route path="/changeDetection" component={ChangeDetection} />
@@ -19,7 +20,7 @@ class App extends Component {
         <Route path="/" exact component={Home} />
       </Switch>
     );
-    return <Layout>{paths}</Layout>;
+    return <Layout toolbarFlag={toolbarFlag}>{paths}</Layout>;
   }
 }
 

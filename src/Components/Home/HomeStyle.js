@@ -6,8 +6,11 @@ const useStyles = makeStyles((theme) => ({
     backgroundPosition: "center",
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
-    height: "500px",
+    height: "800px",
     [theme.breakpoints.down("md")]: {
+      height: "400px",
+    },
+    [theme.breakpoints.down("xs")]: {
       height: "200px",
     },
   },
@@ -16,9 +19,9 @@ const useStyles = makeStyles((theme) => ({
     margin: "0",
     position: "absolute",
     top: "25%",
-    left: "35%",
+    left: "38%",
     color: "white",
-    fontSize: "30px",
+    fontSize: "25px",
     fontWeight: "bold",
     [theme.breakpoints.down("xs")]: {
       top: "15%",
