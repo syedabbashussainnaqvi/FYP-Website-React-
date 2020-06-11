@@ -6,9 +6,7 @@ import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
 import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import { Container, Row, Col } from "react-bootstrap";
-import styles from "./ExpansionPanelStyles";
-import Task from "../../../Home/Task/Task";
-import imgr from "../../../../Assets/abbas.jpg";
+import styles from "./ExpansionPanel2Styles";
 export default function SimpleExpansionPanel(props) {
   const classes = styles();
   const readHandler = () => {
@@ -29,15 +27,37 @@ export default function SimpleExpansionPanel(props) {
             <ExpansionPanelDetails>
               <Container>
                 <Row>
+                  <Col>{props.category["dataset"].text}</Col>
+                </Row>
+                <Row>
+                  <Col>
+                    <ul>
+                      {props.category["dataset"].list.map((obj, i) => {
+                        return (
+                          <Row>
+                            <Col>
+                              <li>
+                                <span style={{ fontWeight: "bold" }}>
+                                  {obj["heading"]}
+                                </span>
+                                &nbsp;
+                                {obj["text"]}
+                              </li>
+                            </Col>
+                          </Row>
+                        );
+                      })}
+                    </ul>
+                  </Col>
+                </Row>
+                <Row>
                   <Col>
                     <img
-                      src={require(`../../../../Assets/${props.category["dataset"].datasetImage}`)}
+                      src={require(`../../../../Assets/changeDetection/${props.category["dataset"]["image"]}`)}
                       style={{
-                        width: "40%",
-                        float: "left",
+                        width: "100%",
                       }}
                     />
-                    <div>{props.category["dataset"].text}</div>
                   </Col>
                 </Row>
               </Container>
@@ -53,105 +73,48 @@ export default function SimpleExpansionPanel(props) {
               {" "}
               <AddIcon /> &nbsp;
               <Typography className={classes.heading}>
-                New Class Nomenclature
-              </Typography>
-            </ExpansionPanelSummary>
-            <ExpansionPanelDetails>
-              <Container>
-                <Row>
-                  <Col>
-                    <img
-                      src={require(`../../../../Assets/${props.category["classNomenclature"].classNomenclatureImage}`)}
-                      style={{
-                        width: "40%",
-                        float: "left",
-                      }}
-                    />
-                    <div>{props.category["classNomenclature"].text}</div>
-                  </Col>
-                </Row>
-              </Container>
-            </ExpansionPanelDetails>
-          </ExpansionPanel>
-        </Col>
-      </Row>
-      <Row style={{ marginTop: "20px" }}>
-        <Col md={6}>
-          <ExpansionPanel>
-            <ExpansionPanelSummary
-              aria-controls="panel1a-content"
-              id="panel1a-header"
-            >
-              <AddIcon /> &nbsp;
-              <Typography className={classes.heading}>
                 Data Collection
               </Typography>
             </ExpansionPanelSummary>
             <ExpansionPanelDetails>
               <Container>
-                <Col>{props.category["dataCollection"].text}</Col>
-                <ul>
-                  {props.category["dataCollection"].headings.map((obj, i) => {
-                    return (
-                      <Row>
-                        <Col>
-                          <li>
-                            <span style={{ fontWeight: "bold" }}>
-                              {obj["heading"]}
-                            </span>
-                            &nbsp;
-                            {obj["text"]}
-                            {obj["image"] != "none" ? (
-                              <Col>
-                                {obj["image"] == "heading1Image.jpg" ? (
-                                  <img
-                                    src={require(`../../../../Assets/${obj["image"]}`)}
-                                    style={{
-                                      width: "80%",
-                                      height: "60%",
-                                    }}
-                                  />
-                                ) : (
-                                  <img
-                                    src={require(`../../../../Assets/${obj["image"]}`)}
-                                    style={{
-                                      width: "100%",
-                                    }}
-                                  />
-                                )}
-                              </Col>
-                            ) : null}
-                          </li>
-                        </Col>
-                      </Row>
-                    );
-                  })}
-                </ul>
-              </Container>
-            </ExpansionPanelDetails>
-          </ExpansionPanel>
-        </Col>
-        <Col md={6}>
-          <ExpansionPanel>
-            <ExpansionPanelSummary
-              aria-controls="panel1a-content"
-              id="panel1a-header"
-            >
-              <AddIcon /> &nbsp;
-              <Typography className={classes.heading}>Methodology</Typography>
-            </ExpansionPanelSummary>
-            <ExpansionPanelDetails>
-              <Container>
                 <Row>
-                  <Col>{props.category["methodology"].text}</Col>
-                  <br />
+                  <Col>{props.category["dataCollection"].text}</Col>
+                </Row>
+                <Row>
+                  <Col md={7}>
+                    <ul>
+                      {props.category["dataCollection"].headings.map((str) => {
+                        return <li>{str}</li>;
+                      })}
+                    </ul>
+                  </Col>
+                  <Col md={5}>
+                    <img
+                      src={require(`../../../../Assets/changeDetection/${props.category["dataCollection"]["image"]}`)}
+                      style={{
+                        width: "100%",
+                        height: "100%",
+                      }}
+                    />
+                  </Col>
+                </Row>
+                <Row>
+                  <Col>{props.category["dataCollection"].text2}</Col>
                 </Row>
                 <Row>
                   <Col>
                     <img
-                      src={require(`../../../../Assets/${props.category["methodology"].methodologyImage}`)}
+                      src={require(`../../../../Assets/changeDetection/${props.category["dataCollection"]["image2"]}`)}
                       style={{
-                        borderRadius: "10px",
+                        width: "100%",
+                      }}
+                    />
+                  </Col>
+                  <Col>
+                    <img
+                      src={require(`../../../../Assets/changeDetection/${props.category["dataCollection"]["image3"]}`)}
+                      style={{
                         width: "100%",
                       }}
                     />
@@ -163,6 +126,20 @@ export default function SimpleExpansionPanel(props) {
         </Col>
       </Row>
       <Row style={{ marginTop: "20px" }}>
+        <Col md={6}>
+          <ExpansionPanel>
+            <ExpansionPanelSummary
+              aria-controls="panel1a-content"
+              id="panel1a-header"
+            >
+              <AddIcon /> &nbsp;
+              <Typography className={classes.heading}>Methodology</Typography>
+            </ExpansionPanelSummary>
+            <ExpansionPanelDetails>
+              <Container></Container>
+            </ExpansionPanelDetails>
+          </ExpansionPanel>
+        </Col>
         <Col md={6}>
           <ExpansionPanel>
             <ExpansionPanelSummary
@@ -176,31 +153,57 @@ export default function SimpleExpansionPanel(props) {
               <Container>
                 <Row>
                   <Col>{props.category["results"].text}</Col>
+                  <Col>
+                    {" "}
+                    <img
+                      src={require(`../../../../Assets/changeDetection/${props.category["results"]["image"]}`)}
+                      style={{
+                        width: "100%",
+                      }}
+                    />
+                  </Col>
+                </Row>
+              </Container>
+            </ExpansionPanelDetails>
+          </ExpansionPanel>
+        </Col>
+      </Row>
+      <Row style={{ marginTop: "20px" }}>
+        <Col md={6}>
+          <ExpansionPanel>
+            <ExpansionPanelSummary
+              aria-controls="panel1a-content"
+              id="panel1a-header"
+            >
+              <AddIcon /> &nbsp;
+              <Typography className={classes.heading}>Prediction</Typography>
+            </ExpansionPanelSummary>
+            <ExpansionPanelDetails>
+              <Container>
+                <Row>
+                  <Col>{props.category["prediction"].text}</Col>
                 </Row>
                 <Row>
                   <Col md={6}>
                     <img
-                      src={require(`../../../../Assets/${props.category["results"].image1}`)}
+                      src={require(`../../../../Assets/changeDetection/${props.category["prediction"]["image1"]}`)}
                       style={{
-                        borderRadius: "10px",
                         width: "100%",
                       }}
                     />
                   </Col>
                   <Col md={6}>
                     <img
-                      src={require(`../../../../Assets/${props.category["results"].image2}`)}
+                      src={require(`../../../../Assets/changeDetection/${props.category["prediction"]["image2"]}`)}
                       style={{
-                        borderRadius: "10px",
                         width: "100%",
                       }}
                     />
                   </Col>
                   <Col md={6}>
                     <img
-                      src={require(`../../../../Assets/${props.category["results"].image3}`)}
+                      src={require(`../../../../Assets/changeDetection/${props.category["prediction"]["image3"]}`)}
                       style={{
-                        borderRadius: "10px",
                         width: "100%",
                       }}
                     />
@@ -208,18 +211,10 @@ export default function SimpleExpansionPanel(props) {
                 </Row>
 
                 <Row>
-                  <Col>{props.category["results"].text2}</Col>
+                  <Col></Col>
                 </Row>
                 <Row style={{ marginTop: "10px" }}>
-                  <Col>
-                    <img
-                      src={require(`../../../../Assets/${props.category["results"].image4}`)}
-                      style={{
-                        borderRadius: "10px",
-                        width: "100%",
-                      }}
-                    />
-                  </Col>
+                  <Col></Col>
                 </Row>
               </Container>
             </ExpansionPanelDetails>
@@ -232,22 +227,9 @@ export default function SimpleExpansionPanel(props) {
               id="panel1a-header"
             >
               <AddIcon /> &nbsp;
-              <Typography className={classes.heading}>Prediction</Typography>
+              <Typography className={classes.heading}>Application</Typography>
             </ExpansionPanelSummary>
-            <ExpansionPanelDetails>
-              <Col>
-                <img
-                  src={require(`../../../../Assets/${props.category["prediction"].image1}`)}
-                  style={{ borderRadius: "10px" }}
-                />
-              </Col>{" "}
-              <Col>
-                <img
-                  src={require(`../../../../Assets/${props.category["prediction"].image2}`)}
-                  style={{ borderRadius: "10px" }}
-                />
-              </Col>
-            </ExpansionPanelDetails>
+            <ExpansionPanelDetails></ExpansionPanelDetails>
           </ExpansionPanel>
         </Col>
       </Row>

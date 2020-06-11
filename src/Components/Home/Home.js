@@ -78,15 +78,17 @@ const Home = (props) => {
             readHandler={readHandler}
             flex="row-reverse"
           >
-            Syed Abbas Hussain Naqvi is a Talented Final Year Computer Science
-            student with a strong academic background and the ability to think
-            through a problem coupled with the confidence to make ideas heard.
-            He is working in TUKL-NUST R&D Centre at my University (NUST) He is
-            interested in MERN Stack Development and Data Science. His Final
-            Year Project is "Patch-Wise Forest Segmentation of Remote Sensing
-            Data". He is working on forest classification, change detection and
-            data fusion of Sentinel-1 and Sentinel-2 imagery to get better
-            classification results on the Pakistan dataset.
+            The lack of annotated data of Pakistan leads to use the unsupervised
+            technique to detect land cover changes. In order to monitor the
+            forest growth or decline, an automated tool is required for this
+            purpose, pretrained segmentation model is required which has been
+            trained on similar dataset. A UNet model is trained on Potsdam
+            dataset containing land scene images along with ground truth of 6
+            classes. After training, the model inferred on two temporal images
+            of same region. Later, channel wise Euclidean distance was
+            calculated between two images which produced the difference image.
+            After that K-Means Clustering algorithm was applied on difference
+            image which produced the change map.
           </Task>
         </Col>
       </Row>

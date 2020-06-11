@@ -3,18 +3,23 @@ import ReactDOM from "react-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
-import { createStore, applyMiddleware, compose } from "redux";
+import { createStore, applyMiddleware, compose, combineReducers } from "redux";
 import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import DataReducer from "./store/Reducer/HomeTaskReducer";
+import ChangeReducer from "./store/Reducer/changeReducer";
 import thunk from "redux-thunk";
 const composeEnhancers =
   process.env.NODE_ENV === "development"
     ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
     : null || compose;
+const rootReducer = combineReducers({
+  classificationReducer: DataReducer,
+  changeReducer: ChangeReducer,
+});
 const store = createStore(
-  DataReducer,
+  rootReducer,
   composeEnhancers(applyMiddleware(thunk))
 );
 const app = (

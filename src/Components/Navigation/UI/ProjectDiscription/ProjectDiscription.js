@@ -4,20 +4,30 @@ import { Container, Row, Col } from "react-bootstrap";
 import styles from "./TaskUIStyles";
 import imgd from "../../../../Assets/test.jpg";
 import Panel from "../ExpansionPanel/ExpansionPanel";
+import Panel2 from "../ExpansionPanel2/ExpansionPanel2";
 import HomeUI from "../../../Home/HomeUI/HomeUI";
 //redux store sa hmmy data uthana ha
 const ProjectDiscription = (props) => {
   const classes = styles();
-  const count = useSelector((state) => state.tasks);
+  const classification = useSelector(
+    (state) => state.classificationReducer.tasks
+  );
+  const change = useSelector((state) => state.changeReducer.tasks);
   const [state, setState] = React.useState({
     category: null,
   });
 
   useEffect(() => {
     const selector = props.match.params.id;
-    setState({
-      category: count[selector],
-    });
+    if (selector == "classification") {
+      setState({
+        category: classification[selector],
+      });
+    } else if (selector == "changeDetection") {
+      setState({
+        category: change[selector],
+      });
+    }
   }, []);
 
   let stateSet = <h1>Loading...</h1>;
@@ -48,21 +58,37 @@ const ProjectDiscription = (props) => {
                 "0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24)",
             }}
           >
-            <img
-              src={require(`../../../../Assets/${state.category["methodology"].methodologyImage}`)}
-              style={{
-                marginTop: "15%",
-                borderRadius: "10px",
-                width: "100%",
-                height: "50%",
-              }}
-            />
+            {props.match.params.id == "classification" ? (
+              <img
+                src={require(`../../../../Assets/${state.category["methodology"].methodologyImage}`)}
+                style={{
+                  marginTop: "15%",
+                  borderRadius: "10px",
+                  width: "100%",
+                  height: "50%",
+                }}
+              />
+            ) : (
+              <img
+                src={require(`../../../../Assets/changeDetection/${state.category["methodology"].methodologyImage}`)}
+                style={{
+                  marginTop: "15%",
+                  borderRadius: "10px",
+                  width: "100%",
+                  height: "50%",
+                }}
+              />
+            )}
           </Col>
         </Row>
         <hr />
         <Row style={{ marginTop: "20px" }}>
           <Col>
-            <Panel category={state.category} />
+            {props.match.params.id == "classification" ? (
+              <Panel category={state.category} />
+            ) : (
+              <Panel2 category={state.category} />
+            )}
           </Col>
         </Row>
       </Container>

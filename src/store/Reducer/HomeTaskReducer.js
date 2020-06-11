@@ -17,28 +17,39 @@ const initialState = {
       dataCollection: {
         text:
           "Now, in order to see whether combining data from SAR and Optical satellites improves the result we have to collect the SAR image patches for the corresponding areas covered by patches in the BigEarthNet. So we developed a semi-automatic workflow to collect the SAR images. The step by step procedure is given below:",
-        heading1: {
-          text:
-            "The archive contains the 590,326 directories; each directory containing 12 bands and corresponds to a single patch. In order to automate the process, we had to rearrange data. Since we knew it contain 125 image tiles with 56 unique tiles. So, we made a directory for each tile within that tile there are different directories of tile corresponding to different time period. Then in the last each tile contains the specific number of patches inside the directory of tile.  The arrangement is shown in the image.",
-          heading1Image: "heading1Image.jpg",
-        },
-        heading2:
-          "As mentioned above that the dataset contained the 125 tiles. The web link for each tile was provided by the team of BigEarthNet in csv file available on GitLab. Using those links, we extracted 56 unique tiles. Each tile had the dimensions of 10980x10980.",
-        heading3: {
-          text:
-            "After extracting the 56 sentinel-2 tiles. We extracted the extents of all the tiles using qgis tool. The extents obtained was in utm format. So, in order to get the corresponding sentinel-1 tiles through earth engine we converted the utm coordinates to latitudes and longitudes.",
-          heading3image: "heading3image.png",
-        },
-        heading4: {
-          text:
-            "In order to collect the sentinel-1 tile we chose a timespan ranging from 1 to 3 months since sometimes complete sentinel-1 image could be obtained for some region for specific dates. So, we had to collect the images for a larger timespan and then created a mosaic. ",
-          heading4image: "heading4image.png",
-        },
-        heading5: {
-          text:
-            "After obtaining the 56 SAR image raster corresponding to sentinel-2 image tiles, we needed to clip patches equivalent to that of BigEarthNet dataset. Since we have rearranged the patches inside the tiles, it became easy to automate the clipping of raster using the extents of individual patches. Following the same procedure for 56 tiles we were able to collect the 248,390 image pairs.",
-          heading5image: "heading5image.png",
-        },
+
+        headings: [
+          {
+            heading: "Rearranging BigEarthNet patches:",
+            text:
+              "The archive contains the 590,326 directories; each directory containing 12 bands and corresponds to a single patch. In order to automate the process, we had to rearrange data. Since we knew it contain 125 image tiles with 56 unique tiles. So, we made a directory for each tile within that tile there are different directories of tile corresponding to different time period. Then in the last each tile contains the specific number of patches inside the directory of tile.  The arrangement is shown in the image.",
+            image: "heading1Image.jpg",
+          },
+          {
+            heading: "Source Tile Extraction:",
+            image: "none",
+            text:
+              "As mentioned above that the dataset contained the 125 tiles. The web link for each tile was provided by the team of BigEarthNet in csv file available on GitLab. Using those links, we extracted 56 unique tiles. Each tile had the dimensions of 10980x10980.",
+          },
+          {
+            heading: "Extents Extraction:",
+            text:
+              "After extracting the 56 sentinel-2 tiles. We extracted the extents of all the tiles using qgis tool. The extents obtained was in utm format. So, in order to get the corresponding sentinel-1 tiles through earth engine we converted the utm coordinates to latitudes and longitudes.",
+            image: "heading3image.png",
+          },
+          {
+            heading: "Sentinel-1 tile extraction:",
+            text:
+              "In order to collect the sentinel-1 tile we chose a timespan ranging from 1 to 3 months since sometimes complete sentinel-1 image could be obtained for some region for specific dates. So, we had to collect the images for a larger timespan and then created a mosaic. ",
+            image: "heading4image.png",
+          },
+          {
+            heading: "Clipping raster by extent:",
+            text:
+              "After obtaining the 56 SAR image raster corresponding to sentinel-2 image tiles, we needed to clip patches equivalent to that of BigEarthNet dataset. Since we have rearranged the patches inside the tiles, it became easy to automate the clipping of raster using the extents of individual patches. Following the same procedure for 56 tiles we were able to collect the 248,390 image pairs.",
+            image: "heading5image.png",
+          },
+        ],
       },
       methodology: {
         text:
@@ -52,7 +63,7 @@ const initialState = {
         image2: "image2.jpg",
         image3: "image3.jpg",
         text2: "Results are summarized in the table below as well.",
-        image4: "image1.png",
+        image4: "resultsTable.PNG",
       },
       prediction: {
         image1: "predictionImage1.jpg",
@@ -63,21 +74,6 @@ const initialState = {
           "As mentioned above that the individual patches were annotated with multilabel provided by CORINE Land Cover database of year 2018. For labelling, most thematic Level-3 class nomenclature gives 43 labels. Later, 19 classes proposed by arranging previous labels based on properties of Sentinel-2 images. Latest labels are shown in the image below:",
         classNomenclatureImage: "classNomenclatureImage.jpg",
       },
-    },
-    changeDetection: {
-      abstract:
-        "The ongoing march toward freely available, highly pre-processed satellite imagery has given both researchers\
-and the public unprecedented access to a vast and varied data stream teeming with potential. Among many\
-sources, the multi-decade Landsat archive is certainly the best known, but legacy and current data from other\
-sensors is available as well through the USGS data portals: these include CBERS, ASTER, and more. Though the\
-particular band combinations or non-global missions have made their integration into analyses more challenging,\
-these data, in conjunction with the entire Landsat record, are available to contribute to multi-decade\
-surveys of land-cover change.",
-      dataset: "Dataset info",
-      dataCollection: "Data Collection",
-      methodology: "Methodology",
-      results: "Results",
-      methodologyImage: "changeDetectionMethodologyImage.png",
     },
   },
 };
