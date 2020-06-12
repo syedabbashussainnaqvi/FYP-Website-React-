@@ -93,6 +93,28 @@ class Classification extends Component {
 
         this.setState({
           result: response.data.result,
+          setLabel: {
+            Coniferousforest: false,
+            Mixedforest: false,
+            Transitionalwoodlandshrub: false,
+            Urbanfabric: false,
+            Industrialorcommercialunits: false,
+            Arableland: false,
+            Permanentcrops: false,
+            Pastures: false,
+            Complexcultivationpatterns: false,
+            Landprincipallyoccupiedbyagriculturewithsignificantareasofnaturalvegetation: false,
+            Agroforestryareas: false,
+            Broadleavedforest: false,
+            Naturalgrasslandandsparselyvegetatedareas: false,
+            Moorsheathlandandsclerophyllousvegetation: false,
+            Transitionalwoodlandshrub: false,
+            Beachesdunessands: false,
+            Inlandwetlands: false,
+            Coastalwetlands: false,
+            Inlandwaters: false,
+            Marinewaters: false,
+          },
         });
         response.data.result.map((res) => {
           let spaceRemoval = res.replace(/\s/g, "");
@@ -168,41 +190,48 @@ class Classification extends Component {
       <div className={classes.App}>
         <div className={classes.task}>
           <Task
-            imgName="abbas.jpg"
+            imgName="howToUse.jfif"
             heading="How to Use"
             readHandler={this.readHandler}
             id="classification"
             readMore="none"
           >
-            Syed Abbas Hussain Naqvi is a Talented Final Year Computer Science
-            student with a strong academic background and the ability to think
-            through a problem coupled with the confidence to make ideas heard.
-            He is working in TUKL-NUST R&D Centre at my University (NUST) He is
-            interested in MERN Stack Development and Data Science. His Final
-            Year Project is "Patch-Wise Forest Segmentation of Remote Sensing
-            Data". He is working on forest classification, change detection and
-            data fusion of Sentinel-1 and Sentinel-2 imagery to get better
-            classification results on the Pakistan dataset.
+            <ul>
+              <li>
+                First click on the dropdown model and select the model through
+                which you want to test image.{" "}
+              </li>
+              <li>
+                Then click on choose file option and select the satellite image.{" "}
+              </li>
+              <li>
+                Make sure that the image selected by you is in tiff format.
+              </li>
+              <li> Also make sure image has 12 Channels. </li>
+              <li>Then click the Button.</li>
+              <li>Wait untill circle on the button is moving.</li>
+            </ul>
           </Task>
         </div>
         <div className={classes.task}>
           <Task
-            imgName="abbas.jpg"
-            heading="How to Use"
+            imgName="results.jpg"
+            heading="Results"
             readHandler={this.readHandler}
             id="classification"
             readMore="none"
-            flex="row-reverse"
           >
-            Syed Abbas Hussain Naqvi is a Talented Final Year Computer Science
-            student with a strong academic background and the ability to think
-            through a problem coupled with the confidence to make ideas heard.
-            He is working in TUKL-NUST R&D Centre at my University (NUST) He is
-            interested in MERN Stack Development and Data Science. His Final
-            Year Project is "Patch-Wise Forest Segmentation of Remote Sensing
-            Data". He is working on forest classification, change detection and
-            data fusion of Sentinel-1 and Sentinel-2 imagery to get better
-            classification results on the Pakistan dataset.
+            <ul>
+              <li>Wait After Clicking the Submit Button.</li>
+              <li>
+                After few seconds a list of all labels will be shown in form of
+                checkboxes.
+              </li>
+              <li>
+                Among all the checkboxes only those checkboxes will be checked
+                that are returned from the model
+              </li>
+            </ul>
           </Task>
         </div>
 

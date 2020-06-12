@@ -15,13 +15,12 @@ const footer = () => {
           icon: <img src={logo} />,
           items: [
             {
-              description: "This website is is created as a demo for our FYP. ",
+              description:
+                "This website is is created as a demo for our FYP. It gives the brief overview of our entire project",
             },
             {
-              description: "This website is is created as a demo for our FYP. ",
-            },
-            {
-              description: "This website is is created as a demo for our FYP. ",
+              description:
+                "This website gives the brief overview of our entire project ",
             },
           ],
         },

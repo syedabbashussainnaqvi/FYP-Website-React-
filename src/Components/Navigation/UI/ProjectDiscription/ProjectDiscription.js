@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Container, Row, Col } from "react-bootstrap";
 import styles from "./TaskUIStyles";
-import imgd from "../../../../Assets/test.jpg";
+
 import Panel from "../ExpansionPanel/ExpansionPanel";
 import Panel2 from "../ExpansionPanel2/ExpansionPanel2";
 import HomeUI from "../../../Home/HomeUI/HomeUI";

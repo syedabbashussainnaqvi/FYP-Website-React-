@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import classes from "./changeDetection.module.css";
 import axios from "axios";
 import Upload from "../uploadComponent/upload";
-
+import Button from "../Navigation/UI/Button/Button";
+import Task from "../Home/Task/Task";
 class ChangeDetection extends Component {
   constructor(props) {
     super(props);
@@ -67,22 +68,65 @@ class ChangeDetection extends Component {
     }
     return (
       <div className={classes.App}>
-        <h1>Upload Images For Change Detection</h1>
-        <div className={a.join(" ")}>{$imagePreview}</div>
+        <div className={classes.task}>
+          <Task
+            imgName="howToUse.jfif"
+            heading="How to Use"
+            readHandler={this.readHandler}
+            id="classification"
+            readMore="none"
+          >
+            <ul>
+              <li>
+                First click on choose file option and select the 1st satellite
+                image to test.
+              </li>
+              <li>
+                After first images is shown then again click on choose file
+                option to select 2nd image to test{" "}
+              </li>
+              <li>
+                Make sure that the image selected by you is in rgb format.
+              </li>
+              <li>Then click the Button.</li>
+              <li>Wait untill circle on the button is moving.</li>
+            </ul>
+          </Task>
+        </div>
+        <div className={classes.task}>
+          <Task
+            imgName="results.jpg"
+            heading="Results"
+            readHandler={this.readHandler}
+            id="classification"
+            readMore="none"
+          >
+            <ul>
+              <li>Wait After Clicking the Submit Button.</li>
+              <li>
+                After few seconds resultant image will be returned and displayed
+                at the bottom of this box.
+              </li>
+              <li>Resultant image will show the change in the input images.</li>
+              <li>Result will be shown below this box.</li>
+            </ul>
+          </Task>
+        </div>
+        <h2 style={{ textAlign: "center" }}>
+          Upload Images For Change Detection
+        </h2>
         <div className={classes.Card}>
           <div className={classes.dis}>
             <Upload setImage={this.setImage} />
             <Upload setImage={this.setImage2} />
           </div>
         </div>
-        <button
-          disabled={btn}
-          className={classes.submitButton}
-          type="submit"
-          onClick={this.postServerHandle}
-        >
-          Send Image To Server
-        </button>
+        <Button
+          result={this.state.avatar}
+          disable={btn}
+          postServerHandle={this.postServerHandle}
+        />
+        <div className={a.join(" ")}>{$imagePreview}</div>
       </div>
     );
   }

@@ -39,6 +39,70 @@ const initialState = {
         text:
           "The methodology to find change map consist of following 2 methods:",
         methodologyImage: "methodologyImage1.jpg",
+
+        headings: [
+          {
+            heading: "UNet Training on Potsdam dataset:",
+            text:
+              "The properties and characteristics of Potsdam dataset are explained above. We had the RGB images along with the ground truth mask. We trained the UNet model for semantic segmentation of the land scenes. There are 4 different operations in the UNet architecture which are as follow:",
+            image: "methodologyImage1.png",
+            subheadings: [
+              {
+                heading: "Convolutions:",
+                text:
+                  "There are successive convolutions in the network architecture to extract the feature maps. A 3x3 kernel/filter is used to carry out the convolutions. These convolutions are followed by the Rectified Linear Unit (ReLU) as an activation function.",
+              },
+              {
+                heading: "Max-Pooling:",
+                text:
+                  "Every two convolutions are followed by a max pooling layer. These layers are used to keep the important features from the feature map input while discarding the less important features. A 2x2 pool window is used and the size of input feature map is reduced by half.",
+              },
+              {
+                heading: "Up-Convolutions:",
+                text:
+                  "The up convolutions are used for the up sampling the feature map. Again, a kernel size of 2x2 is used in these convolutions thereby up sampling output dimensions of input feature by factor 2. And every up convolution is followed by two normal convolutions and each convolution is followed by the ReLU activation function.",
+              },
+              {
+                heading: "Concatenations:",
+                text:
+                  "The output of every two convolutions is being concatenated with the output of the up convolution. The concatenation is being carried out in the following manner:",
+                subSubHeadings: [
+                  "Output of last convolutions with the output of first up convolution",
+                  "Output of second last convolutions with output of second up convolution",
+                  "And so no",
+                ],
+              },
+              {
+                heading: "Sigmoid output:",
+                text:
+                  "At the last layer there is a 1x1 convolution followed by the sigmoid activation to get the segmented mask as the output. For training purposes, only RGB channel of images were used. The dimension of input images was 256x256 whereas the total number of output classes was 6 making the dimension of output as 6x256x256. The output gives 6 binary masks corresponding to the each class named above.",
+              },
+            ],
+          },
+          {
+            heading: "Finding Difference Image (DI) to produce change map:",
+            text:
+              "In order to learn the similarity/dissimilarity between two temporal images of same regjon we decide to use some distance measure between the two images. The overall method for creating the change map consist of the following steps:",
+            image: "methodologyImage1.jpg",
+            subheadings: [
+              {
+                heading: "Feature Extraction:",
+                text:
+                  "We extracted the feature by inferring the model on two images of different time period and of same region. First, we get the inference result of trained UNet on image of 2018 say of Haripur after that we get the inference result of trained UNet on image of 2019. Doing this we go 6 binary masks for the both input images. The inference result of each image had dimensions of 6x256x256",
+              },
+              {
+                heading: "Similarity:",
+                text:
+                  "After getting the inference results, we wanted to calculate the similarity between the results of two images. For similarity we selected the Euclidean distance. We calculated the channel wise Euclidean distance, doing so produced the Difference Image with 256x256 dimension. Since we used the Euclidean distance there can be only three possible values i.e. 0, 1, 1.414. ",
+              },
+              {
+                heading: "K-Means Clustering:",
+                text:
+                  "Now in order to get the change map we need to have 2 values in the change map instead of 3 in the difference image. We need to have a binary change mask as a result where pixel value 0 shows no-change while pixel value 1 shows change. In order to get the change map, we used K-Means Clustering algorithm and specified k=2, so that the algorithm gives only two values in the resultant change mask.",
+              },
+            ],
+          },
+        ],
       },
       results: {
         text:

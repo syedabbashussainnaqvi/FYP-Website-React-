@@ -12,7 +12,7 @@ const Task = (props) => {
           flexDirection: props.flex,
         }}
       >
-        <Col md={2.3}>
+        <Col md={3}>
           <img
             className={classes.img}
             src={require(`../../../Assets/${props.imgName}`)}

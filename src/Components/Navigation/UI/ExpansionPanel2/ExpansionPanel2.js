@@ -136,7 +136,70 @@ export default function SimpleExpansionPanel(props) {
               <Typography className={classes.heading}>Methodology</Typography>
             </ExpansionPanelSummary>
             <ExpansionPanelDetails>
-              <Container></Container>
+              <Container>
+                <Row>
+                  <Col>{props.category["methodology"].text}</Col>
+                  <ol>
+                    {props.category["methodology"].headings.map((obj, i) => {
+                      return (
+                        <Row>
+                          <Col md={12}>
+                            <li>
+                              <span style={{ fontWeight: "bold" }}>
+                                {obj["heading"]}
+                              </span>
+                              <br />
+                              {obj["text"]}
+                              <ul>
+                                {obj["subheadings"].map((obj2, i) => {
+                                  return (
+                                    <Row>
+                                      <Col>
+                                        <li>
+                                          <span style={{ fontWeight: "bold" }}>
+                                            {obj2["heading"]}
+                                          </span>
+                                          <br />
+                                          {obj2["text"]}
+                                          {obj2["heading"] ==
+                                          "Concatenations:" ? (
+                                            <ul>
+                                              {obj2["subSubHeadings"].map(
+                                                (obj3) => {
+                                                  return (
+                                                    <Row>
+                                                      <Col>
+                                                        <li>{obj3}</li>
+                                                      </Col>
+                                                    </Row>
+                                                  );
+                                                }
+                                              )}
+                                            </ul>
+                                          ) : null}
+                                          )}
+                                        </li>
+                                      </Col>
+                                    </Row>
+                                  );
+                                })}
+                              </ul>
+                            </li>
+                          </Col>
+                          <Col>
+                            <img
+                              src={require(`../../../../Assets/changeDetection/${obj["image"]}`)}
+                              style={{
+                                width: "100%",
+                              }}
+                            />
+                          </Col>
+                        </Row>
+                      );
+                    })}
+                  </ol>
+                </Row>
+              </Container>
             </ExpansionPanelDetails>
           </ExpansionPanel>
         </Col>

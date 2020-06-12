@@ -40,6 +40,15 @@ const useStyles = makeStyles((theme) => ({
       color: "white",
     },
   },
+  read: {
+    display: "inline-block",
+    marginLeft: "3px",
+    color: "#286DA8",
+    cursor: "pointer",
+    "&:hover": {
+      color: "#0a8cfc",
+    },
+  },
 }));
 
 export default useStyles;
