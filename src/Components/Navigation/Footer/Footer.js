@@ -11,7 +11,7 @@ const footer = () => {
       style={{ backgroundColor: "#363636" }}
       columns={[
         {
-          title: "Forest Change Detection",
+          title: "Forest Change Detection Using Remote Sensing Data",
           icon: <img src={logo} />,
           items: [
             {

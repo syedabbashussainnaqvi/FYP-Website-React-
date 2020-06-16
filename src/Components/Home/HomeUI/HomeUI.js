@@ -9,7 +9,7 @@ const Home = (props) => {
     <Row>
       <Col className={classes.divStyle}>
         <div className={classes.divCenter}>
-          <p>Forest Change Detection</p>
+          <h5>Forest Change Detection Using Remote Sensing Data</h5>
           <NavDropdown
             className={classes.buttonCenter}
             title="Demo"
@@ -25,7 +25,7 @@ const Home = (props) => {
               href="/classification"
               style={{ backgroundColor: "black" }}
             >
-              Classification
+              Multilabel Classification
             </NavDropdown.Item>
           </NavDropdown>
         </div>

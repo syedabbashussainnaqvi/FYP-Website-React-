@@ -16,11 +16,11 @@ const Home = (props) => {
     props.history.push({ pathname: "/projectdiscription/" + id });
   };
   return (
-    <Container fluid>
+    <Container fluid style={{ textAlign: "justify" }}>
       <Row>
         <Col className={classes.divStyle}>
           <div className={classes.divCenter}>
-            <p>Forest Change Detection</p>
+            <h5>Forest Change Detection Using Remote Sensing Data</h5>
             <NavDropdown
               className={classes.buttonCenter}
               title="Demo"
@@ -36,7 +36,7 @@ const Home = (props) => {
                 href="/classification"
                 style={{ backgroundColor: "black" }}
               >
-                Classification
+                Multilabel Classification
               </NavDropdown.Item>
             </NavDropdown>
           </div>
@@ -63,7 +63,10 @@ const Home = (props) => {
                 />
               </Col>
               <Col md={8}>
-                <h4>Classification</h4>
+                <h4>
+                  Fusing Sentinel-1 and Sentinel-2 images to improve performance
+                  of multilable classification​
+                </h4>
                 Optical images acquired from satellites like sentinel-2 are
                 usually affected by atmosphere and the clouds. While the radar
                 images acquired through satellites like sentinel-1 are not
@@ -108,7 +111,10 @@ const Home = (props) => {
                 />
               </Col>
               <Col md={8}>
-                <h4>Change Detection</h4>
+                <h4>
+                  Unsupervised Change Detection of Northern Pakistan Region
+                  using optical images from Sentine-2 satellite​
+                </h4>
                 The lack of annotated data of Pakistan leads to use the
                 unsupervised technique to detect land cover changes. In order to
                 monitor the forest growth or decline, an automated tool is

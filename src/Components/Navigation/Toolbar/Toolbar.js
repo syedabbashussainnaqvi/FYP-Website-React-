@@ -29,7 +29,7 @@ class Toolbar extends Component {
               height="30"
               className="d-inline-block align-top"
             />{" "}
-            Forest Change Detection
+            Forest Change Detection Using Remote Sensing Data
           </Navbar.Brand>
         </Navbar>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -46,7 +46,7 @@ class Toolbar extends Component {
                 Change Detection
               </NavDropdown.Item>
               <NavDropdown.Item href="/classification">
-                Classification
+                Multilabel Classification
               </NavDropdown.Item>
               {/*<NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
               <NavDropdown.Divider />

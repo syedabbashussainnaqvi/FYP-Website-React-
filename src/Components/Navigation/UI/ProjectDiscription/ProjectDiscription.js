@@ -33,7 +33,7 @@ const ProjectDiscription = (props) => {
   let stateSet = <h1>Loading...</h1>;
   if (state.category) {
     stateSet = (
-      <Container fluid style={{ marginBottom: "20px" }}>
+      <Container fluid style={{ marginBottom: "20px", textAlign: "justify" }}>
         <HomeUI />
         <Row style={{ margin: "3% 3% 0 3%" }}>
           <Col
