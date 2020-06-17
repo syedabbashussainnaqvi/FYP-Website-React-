@@ -87,7 +87,7 @@ class Classification extends Component {
     form.append("modelCategory", this.state.orderForm.Model.value);
 
     axios
-      .post("http://127.0.0.1:8000/upload/", form)
+      .post("http://127.0.0.1:8000/classification/", form)
       .then((response) => {
         console.log(response.data);
 

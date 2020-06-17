@@ -17,6 +17,9 @@ class Toolbar extends Component {
           backgroundPosition: "center",
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
+          a: {
+            color: "black",
+          },
         }}
         expand="sm"
       >
@@ -33,15 +36,23 @@ class Toolbar extends Component {
           </Navbar.Brand>
         </Navbar>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-        <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="mr-auto">
+        <Navbar.Collapse
+          id="responsive-navbar-nav"
+          style={{ paddingLeft: "30%" }}
+        >
+          <Nav>
             <Nav.Link href="/home" style={{ color: "black" }}>
               Home
             </Nav.Link>
             <Nav.Link href="/aboutUs" style={{ color: "black" }}>
               About Us
             </Nav.Link>
-            <NavDropdown title="Demo" id="collasible-nav-dropdown">
+            <NavDropdown
+              className={classes.button}
+              title="Demo"
+              id="collasible-nav-dropdown"
+              style={{ color: "black" }}
+            >
               <NavDropdown.Item href="/changeDetection">
                 Change Detection
               </NavDropdown.Item>

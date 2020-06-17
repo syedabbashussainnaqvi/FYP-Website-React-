@@ -21,7 +21,7 @@ class ChangeDetection extends Component {
     form.append("file2", this.state.img2);
 
     axios
-      .post("http://127.0.0.1:8000/upload/", form)
+      .post("http://127.0.0.1:8000/changeDetection/", form)
       .then((response) => {
         console.log(response.data);
         let a = "data:image/png;base64,";
